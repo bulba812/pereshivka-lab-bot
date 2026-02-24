@@ -1,5 +1,16 @@
 import asyncio
 import os
+try:
+    from aiogram import Bot
+    AIORAM_OK = True
+except ImportError:
+    print("🧵 PereshivkaLab | aiogram НЕТ — тест Render OK!")
+    AIORAM_OK = False
+    while True:
+        pass
+
+if not AIORAM_OK:
+    exit()
 from aiogram import Bot, Dispatcher, F
 from aiogram.types import Message, CallbackQuery, InlineKeyboardMarkup, InlineKeyboardButton
 from dotenv import load_dotenv
@@ -185,3 +196,4 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
